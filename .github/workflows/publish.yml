@@ -1,0 +1,29 @@
+name: Publish to npm
+
+# Publishes with npm Trusted Publishing (OIDC): no npm token is stored anywhere.
+# On npmjs.com, the package's Trusted Publisher must point to this repository and
+# this workflow file (publish.yml).
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # Required for npm Trusted Publishing (OIDC)
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+      - run: npm test
+      # Beta versions (e.g. 1.0.0-beta.1) need an explicit tag; "latest" makes them the
+      # version the Homebridge UI installs.
+      - run: npm publish --tag latest
