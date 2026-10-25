@@ -1,4 +1,6 @@
-# homebridge-apcaccess
+# homebridge-apcaccess2
+
+> **Beta.** This is the successor of [cr3ative/homebridge-apcaccess](https://github.com/cr3ative/homebridge-apcaccess), which is no longer maintained. It started as a fork of that project and was vibecoded (written with an AI coding assistant) into what it is today. It's tested, but please report anything odd in the [issues](https://github.com/santiagosony/homebridge-apcaccess2/issues).
 
 A [Homebridge](https://github.com/homebridge/homebridge) plugin that exposes an APC UPS managed by [apcupsd](http://www.apcupsd.org/) to HomeKit: power cut alerts, battery charge and, optionally, temperature, load and line voltage.
 
@@ -33,15 +35,23 @@ The plugin has no runtime dependencies: it talks to apcupsd's network protocol d
 
 ## Installation
 
-This version is installed from GitHub. Note that `npm install homebridge-apcaccess` installs the original 1.x version from npm instead.
-
-From the Homebridge UI terminal, or a shell in the Homebridge storage directory (usually `/var/lib/homebridge`):
+The plugin is installed from GitHub. From the Homebridge UI terminal, or a shell in the Homebridge storage directory (usually `/var/lib/homebridge`):
 
 ```sh
-npm install santiagosony/homebridge-apcaccess
+npm install santiagosony/homebridge-apcaccess2
 ```
 
-Then restart Homebridge and configure the plugin from its settings in the Homebridge UI.
+Then restart Homebridge and configure the plugin from its settings in the Homebridge UI. To update, run the same command again and restart Homebridge.
+
+### Moving from homebridge-apcaccess
+
+This plugin is a drop-in replacement for the original `homebridge-apcaccess`: it uses the same `"accessory": "APCAccess"` type and the same options, so your existing configuration keeps working and HomeKit keeps the same accessory (rooms and automations included).
+
+1. Uninstall the old plugin: `npm uninstall homebridge-apcaccess`. Both can't be installed at the same time, since both register `APCAccess`.
+2. Install this one with the command above.
+3. Restart Homebridge.
+
+The sensors get new names (`<name> Power`, `<name> Charge`…); see the [CHANGELOG](CHANGELOG.md) for everything that changed.
 
 ## Configuration
 
@@ -112,4 +122,8 @@ CI runs the same on Node 22 and 24 for every push and pull request.
 
 ## Credits
 
-Originally written by [Paul Curry (cr3ative)](https://github.com/cr3ative/homebridge-apcaccess), with contributions from [davidjbradshaw](https://github.com/davidjbradshaw) and [ThisIsQasim](https://github.com/ThisIsQasim). See the [CHANGELOG](CHANGELOG.md).
+This project is based on [homebridge-apcaccess](https://github.com/cr3ative/homebridge-apcaccess) by [Paul Curry (cr3ative)](https://github.com/cr3ative), with contributions from [davidjbradshaw](https://github.com/davidjbradshaw) and [ThisIsQasim](https://github.com/ThisIsQasim). Thanks Paul for the original plugin, and for suggesting this successor project when he stopped maintaining it.
+
+It was forked and then vibecoded, written with an AI coding assistant and reviewed and tested by its maintainer, into what it is today: Homebridge 2.x support, a built-in apcupsd client, new sensors and many fixes. See the [CHANGELOG](CHANGELOG.md).
+
+Maintained by [santiagosony](https://github.com/santiagosony). Released under the [MIT License](LICENSE).

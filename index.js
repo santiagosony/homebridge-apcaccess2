@@ -1,7 +1,7 @@
 const { queryStatus } = require('./lib/apcupsd');
 const { logOnlyError, logMin } = require('./lib/logUpdate');
 
-const PLUGIN_NAME = 'homebridge-apcaccess';
+const PLUGIN_NAME = 'homebridge-apcaccess2';
 const ACCESSORY_NAME = 'APCAccess';
 
 const DEFAULT_INTERVAL = 1;

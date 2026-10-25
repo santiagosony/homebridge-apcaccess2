@@ -1,9 +1,17 @@
 {
   "displayName": "APC UPS (apcupsd)",
-  "name": "homebridge-apcaccess",
-  "version": "2.0.0",
+  "name": "homebridge-apcaccess2",
+  "version": "1.0.0-beta.1",
   "description": "Monitor your APC UPS from HomeKit through apcupsd: power cut alerts, battery charge, load, line voltage and temperature",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "lib/",
+    "config.schema.json",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
   "scripts": {
     "test": "npm run lint && npm run format:check && node --test test/*.test.js",
     "lint": "eslint .",
@@ -23,35 +31,30 @@
     "node": "^20.18.0 || ^22.10.0 || ^24.0.0 || ^26.0.0",
     "homebridge": "^1.8.0 || ^2.0.0"
   },
-  "author": "Paul Curry",
+  "author": {
+    "name": "santiagosony",
+    "url": "https://github.com/santiagosony"
+  },
+  "contributors": [
+    {
+      "name": "Paul Curry (cr3ative), original author",
+      "url": "https://github.com/cr3ative"
+    }
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/santiagosony/homebridge-apcaccess.git"
+    "url": "git+https://github.com/santiagosony/homebridge-apcaccess2.git"
   },
   "bugs": {
-    "url": "https://github.com/santiagosony/homebridge-apcaccess/issues"
+    "url": "https://github.com/santiagosony/homebridge-apcaccess2/issues"
   },
-  "homepage": "https://github.com/santiagosony/homebridge-apcaccess#readme",
+  "homepage": "https://github.com/santiagosony/homebridge-apcaccess2#readme",
   "devDependencies": {
     "@eslint/js": "^9.39.5",
     "eslint": "^9.39.5",
     "globals": "^17.13.0",
     "homebridge": "^2.4.0",
     "prettier": "^3.9.10"
-  },
-  "files": [
-    "index.js",
-    "lib/",
-    "config.schema.json",
-    "README.md",
-    "CHANGELOG.md",
-    "LICENSE"
-  ],
-  "contributors": [
-    {
-      "name": "santiagosony",
-      "url": "https://github.com/santiagosony"
-    }
-  ]
+  }
 }

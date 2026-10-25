@@ -1,4 +1,6 @@
-# [2.0.0]
+# [1.0.0-beta.1]
+
+First release of **homebridge-apcaccess2**, the successor of [homebridge-apcaccess](https://github.com/cr3ative/homebridge-apcaccess) 1.0.3 by Paul Curry. Forked and vibecoded (written with an AI coding assistant) from that project; it's a drop-in replacement: same `APCAccess` accessory type and options. Changes since homebridge-apcaccess 1.0.3:
 
 ## Compatibility
 
@@ -39,6 +41,10 @@
 
 - ESLint 9 (flat config), Prettier 3 and `node:test` unit tests, including tests against Homebridge 2's HAP-NodeJS; `prettier-eslint` and `eslint-config-airbnb-base` dropped.
 - GitHub Actions CI on Node 22 and 24.
+
+---
+
+The versions below are from the original [homebridge-apcaccess](https://github.com/cr3ative/homebridge-apcaccess) by Paul Curry.
 
 # [1.0.3]
 

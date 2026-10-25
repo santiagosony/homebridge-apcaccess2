@@ -40,7 +40,7 @@ const createAccessory = async (t, { status = STATUS, log = silentLog(), ...confi
   api.hap = hap;
   let Accessory;
   api.registerAccessory = (plugin, name, constructor) => {
-    assert.equal(plugin, 'homebridge-apcaccess');
+    assert.equal(plugin, 'homebridge-apcaccess2');
     assert.equal(name, 'APCAccess');
     Accessory = constructor;
   };
