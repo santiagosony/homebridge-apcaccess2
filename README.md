@@ -35,20 +35,20 @@ The plugin has no runtime dependencies: it talks to apcupsd's network protocol d
 
 ## Installation
 
-The plugin is installed from GitHub. From the Homebridge UI terminal, or a shell in the Homebridge storage directory (usually `/var/lib/homebridge`):
+In the Homebridge UI, go to **Plugins**, search for **homebridge-apcaccess2** and install it. Or, from a shell in the Homebridge storage directory (usually `/var/lib/homebridge`):
 
 ```sh
-npm install santiagosony/homebridge-apcaccess2
+npm install homebridge-apcaccess2
 ```
 
-Then restart Homebridge and configure the plugin from its settings in the Homebridge UI. To update, run the same command again and restart Homebridge.
+Then restart Homebridge and configure the plugin from its settings in the Homebridge UI. Updates show up in the Homebridge UI like for any other plugin.
 
 ### Moving from homebridge-apcaccess
 
 This plugin is a drop-in replacement for the original `homebridge-apcaccess`: it uses the same `"accessory": "APCAccess"` type and the same options, so your existing configuration keeps working and HomeKit keeps the same accessory (rooms and automations included).
 
 1. Uninstall the old plugin: `npm uninstall homebridge-apcaccess`. Both can't be installed at the same time, since both register `APCAccess`.
-2. Install this one with the command above.
+2. Install this one (see above).
 3. Restart Homebridge.
 
 The sensors get new names (`<name> Power`, `<name> Charge`…); see the [CHANGELOG](CHANGELOG.md) for everything that changed.
