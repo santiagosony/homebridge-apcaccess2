@@ -22,10 +22,13 @@
   },
   "keywords": [
     "homebridge-plugin",
+    "supports-hap",
     "homebridge",
+    "homekit",
     "apc",
     "apcaccess",
-    "apcupsd"
+    "apcupsd",
+    "ups"
   ],
   "engines": {
     "node": "^20.18.0 || ^22.10.0 || ^24.0.0 || ^26.0.0",
