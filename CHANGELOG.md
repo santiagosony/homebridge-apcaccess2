@@ -1,4 +1,4 @@
-# [Unreleased]
+# [1.0.1]
 
 - Declare the `supports-hap` keyword, so the Homebridge UI shows the plugin as HomeKit (HAP) compatible.
 - CI also tests Node.js 26.
