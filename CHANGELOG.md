@@ -1,3 +1,7 @@
+# [1.0.0-beta.3]
+
+- Published from GitHub Actions with npm Trusted Publishing, so the package on npm carries a provenance attestation linking it to this repository. No changes to the plugin itself.
+
 # [1.0.0-beta.2]
 
 First release of **homebridge-apcaccess2**, the successor of [homebridge-apcaccess](https://github.com/cr3ative/homebridge-apcaccess) 1.0.3 by Paul Curry. Forked and vibecoded (written with an AI coding assistant) from that project; it's a drop-in replacement: same `APCAccess` accessory type and options.
