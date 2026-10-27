@@ -1,6 +1,7 @@
 # [Unreleased]
 
 - Fix: a `powerSensorType` value like `constructor` or `toString` crashed the plugin at startup; any value other than `contact`, `leak` or `smoke` now falls back to the contact sensor.
+- Hardening: the apcupsd response is parsed into an object without a prototype, so key names coming from the network (e.g. `__proto__`, `constructor`) are stored as plain values.
 
 # [1.0.0-beta.3]
 

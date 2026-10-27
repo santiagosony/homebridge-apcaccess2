@@ -6,15 +6,30 @@ const { startFakeApcupsd } = require('./fakeApcupsd');
 
 test('parseStatus splits keys and values', () => {
   assert.deepEqual(
-    parseStatus(
-      'UPSNAME  : myups\nSTATFLAG : 0x05000008\nDATE     : 2026-10-11 10:00:00 +0000  \n',
-    ),
+    {
+      ...parseStatus(
+        'UPSNAME  : myups\nSTATFLAG : 0x05000008\nDATE     : 2026-10-11 10:00:00 +0000  \n',
+      ),
+    },
     {
       UPSNAME: 'myups',
       STATFLAG: '0x05000008',
       DATE: '2026-10-11 10:00:00 +0000',
     },
   );
+});
+
+test('parseStatus stores unusual keys as plain values', () => {
+  const status = parseStatus(
+    '__proto__ : a\nconstructor : b\nhasOwnProperty : c\nSTATFLAG : 0x05000008\n',
+  );
+
+  assert.equal(Object.getPrototypeOf(status), null);
+  assert.equal(status['__proto__'], 'a');
+  assert.equal(status.constructor, 'b');
+  assert.equal(status.hasOwnProperty, 'c');
+  assert.equal(status.STATFLAG, '0x05000008');
+  assert.equal({}.polluted, undefined);
 });
 
 test('queryStatus reads a chunked NIS response', async (t) => {
