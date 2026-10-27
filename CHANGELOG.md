@@ -1,3 +1,7 @@
+# [Unreleased]
+
+- Fix: a `powerSensorType` value like `constructor` or `toString` crashed the plugin at startup; any value other than `contact`, `leak` or `smoke` now falls back to the contact sensor.
+
 # [1.0.0-beta.3]
 
 - Published from GitHub Actions with npm Trusted Publishing, so the package on npm carries a provenance attestation linking it to this repository. No changes to the plugin itself.

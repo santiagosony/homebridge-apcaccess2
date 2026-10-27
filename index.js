@@ -105,7 +105,10 @@ class APCAccess {
 
     // Enabled unless explicitly turned off, to keep the behaviour of older versions
     if (this.config.contactSensor !== false) {
-      this.powerSensor = POWER_SENSORS[this.config.powerSensorType] || POWER_SENSORS.contact;
+      // Only accept the known types; anything else (including names like "constructor") is a contact sensor
+      this.powerSensor = Object.hasOwn(POWER_SENSORS, this.config.powerSensorType)
+        ? POWER_SENSORS[this.config.powerSensorType]
+        : POWER_SENSORS.contact;
       this.powerService = this.withConfiguredName(
         new Service[this.powerSensor.service](`${name} Power`),
       );

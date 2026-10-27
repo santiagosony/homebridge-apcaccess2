@@ -377,3 +377,10 @@ test('load and temperature readings only go to the debug log', async (t) => {
   assert.deepEqual(levels('Load:'), ['debug']);
   assert.deepEqual(levels('Temperature:'), ['debug']);
 });
+
+test('an unknown power sensor type falls back to a contact sensor', async (t) => {
+  for (const powerSensorType of ['nonsense', 'constructor', 'toString', '__proto__']) {
+    const { accessory, hap } = await createAccessory(t, { powerSensorType });
+    assert.ok(accessory.powerService instanceof hap.Service.ContactSensor, powerSensorType);
+  }
+});
