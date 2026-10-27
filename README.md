@@ -118,7 +118,7 @@ npm install
 npm test   # eslint + prettier check + unit tests, including tests against Homebridge 2's HAP-NodeJS
 ```
 
-CI runs the same on Node 22 and 24 for every push and pull request, and CodeQL scans the code and workflows for security issues.
+CI runs the same on Node 22, 24 and 26 for every push and pull request, and CodeQL scans the code and workflows for security issues.
 
 ## Credits
 

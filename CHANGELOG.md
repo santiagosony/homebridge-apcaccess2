@@ -1,3 +1,7 @@
+# [Unreleased]
+
+- CI also tests Node.js 26.
+
 # [1.0.0]
 
 First stable release. It includes everything from the 1.0.0 betas below, plus:
