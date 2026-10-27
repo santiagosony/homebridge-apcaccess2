@@ -1,5 +1,8 @@
 # homebridge-apcaccess2
 
+[![npm](https://img.shields.io/npm/v/homebridge-apcaccess2)](https://www.npmjs.com/package/homebridge-apcaccess2)
+[![CI](https://github.com/santiagosony/homebridge-apcaccess2/actions/workflows/ci.yml/badge.svg)](https://github.com/santiagosony/homebridge-apcaccess2/actions/workflows/ci.yml)
+
 > This is the successor of [cr3ative/homebridge-apcaccess](https://github.com/cr3ative/homebridge-apcaccess), which is no longer maintained. It started as a fork of that project and was vibecoded (written with an AI coding assistant) into what it is today. Please report anything odd in the [issues](https://github.com/santiagosony/homebridge-apcaccess2/issues), or security problems [privately](https://github.com/santiagosony/homebridge-apcaccess2/security/advisories/new).
 
 A [Homebridge](https://github.com/homebridge/homebridge) plugin that exposes an APC UPS managed by [apcupsd](http://www.apcupsd.org/) to HomeKit: power cut alerts, battery charge and, optionally, temperature, load and line voltage.
@@ -28,7 +31,7 @@ Each sensor is named after the accessory `name` (`UPS` in these examples):
 ## Requirements
 
 - Homebridge 1.8 or later (including 2.x)
-- Node.js 20, 22, 24 or 26 (Homebridge 2.x itself requires Node.js 22 or later)
+- Node.js 22, 24 or 26
 - apcupsd with its Network Information Server enabled: `NETSERVER on` in `/etc/apcupsd/apcupsd.conf` (port 3551 by default)
 
 The plugin has no runtime dependencies: it talks to apcupsd's network protocol directly, opening a new connection on every poll, so it recovers on its own when apcupsd restarts.
@@ -110,6 +113,17 @@ By default the log shows the connection, the UPS details at startup, and changes
 - **Line voltage** is only logged with `logVoltage`, and only when it moved at least `voltageLogThreshold` %.
 - **Load and temperature** readings change often and are already visible in HomeKit, so they are only logged in Homebridge debug mode (`-D`).
 - **`errorLogsOnly`** hides everything except errors and warnings, including the line voltage.
+
+## Troubleshooting
+
+**The accessory shows "No Response"**, or the log says `Polling UPS service failed`: the plugin can't get the UPS status from apcupsd.
+
+1. On the machine running apcupsd, run `apcaccess status`. If that fails, apcupsd itself isn't running or can't see the UPS.
+2. In `/etc/apcupsd/apcupsd.conf`, check that `NETSERVER on` is set. If Homebridge runs on **another machine**, also check `NISIP`: `127.0.0.1` only accepts connections from the same machine, while `0.0.0.0` accepts them from the network. Restart apcupsd after changing it.
+3. Check that `host` and `port` match, and that no firewall blocks the port (3551 by default).
+4. `apcupsd lost communication with the UPS (COMMLOST)` in the log means apcupsd is running but can't talk to the UPS: check its USB or serial cable.
+
+For more detail, start Homebridge in debug mode (`-D`).
 
 ## Development
 

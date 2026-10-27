@@ -2,6 +2,8 @@
 
 - Declare the `supports-hap` keyword, so the Homebridge UI shows the plugin as HomeKit (HAP) compatible.
 - CI also tests Node.js 26.
+- Node.js 20 (end-of-life since April 2026) is no longer listed as supported; Node.js 22, 24 and 26 are.
+- README: npm and CI badges, and a Troubleshooting section.
 
 # [1.0.0]
 
