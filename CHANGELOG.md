@@ -1,4 +1,6 @@
-# [Unreleased]
+# [1.0.0]
+
+First stable release. It includes everything from the 1.0.0 betas below, plus:
 
 - Fix: a `powerSensorType` value like `constructor` or `toString` crashed the plugin at startup; any value other than `contact`, `leak` or `smoke` now falls back to the contact sensor.
 - Hardening: the apcupsd response is parsed into an object without a prototype, so key names coming from the network (e.g. `__proto__`, `constructor`) are stored as plain values.

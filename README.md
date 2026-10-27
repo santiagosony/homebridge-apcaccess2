@@ -1,6 +1,6 @@
 # homebridge-apcaccess2
 
-> **Beta.** This is the successor of [cr3ative/homebridge-apcaccess](https://github.com/cr3ative/homebridge-apcaccess), which is no longer maintained. It started as a fork of that project and was vibecoded (written with an AI coding assistant) into what it is today. It's tested, but please report anything odd in the [issues](https://github.com/santiagosony/homebridge-apcaccess2/issues).
+> This is the successor of [cr3ative/homebridge-apcaccess](https://github.com/cr3ative/homebridge-apcaccess), which is no longer maintained. It started as a fork of that project and was vibecoded (written with an AI coding assistant) into what it is today. Please report anything odd in the [issues](https://github.com/santiagosony/homebridge-apcaccess2/issues), or security problems [privately](https://github.com/santiagosony/homebridge-apcaccess2/security/advisories/new).
 
 A [Homebridge](https://github.com/homebridge/homebridge) plugin that exposes an APC UPS managed by [apcupsd](http://www.apcupsd.org/) to HomeKit: power cut alerts, battery charge and, optionally, temperature, load and line voltage.
 
