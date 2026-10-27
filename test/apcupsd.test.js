@@ -76,3 +76,26 @@ test('queryStatus can be cancelled', async (t) => {
 
   await assert.rejects(request, /cancelled/);
 });
+
+test('queryStatus rejects a response that never ends', async (t) => {
+  // Keeps sending valid records without the end marker
+  const server = net.createServer((socket) => {
+    socket.once('data', () => {
+      const record = Buffer.alloc(1002, 'x');
+      record.writeUInt16BE(1000, 0);
+      const send = () => {
+        if (!socket.destroyed && socket.write(record)) setImmediate(send);
+      };
+      socket.on('drain', send);
+      socket.on('error', () => {});
+      send();
+    });
+  });
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  t.after(() => server.close());
+
+  await assert.rejects(
+    queryStatus({ host: '127.0.0.1', port: server.address().port }),
+    /too large/,
+  );
+});
