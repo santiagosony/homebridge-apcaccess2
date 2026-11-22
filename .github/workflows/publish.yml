@@ -11,17 +11,30 @@ on:
 
 permissions:
   contents: read
-  id-token: write # Required for npm Trusted Publishing (OIDC)
+
+# Never two publishes at once, and never cancel one halfway
+concurrency:
+  group: publish-npm
+  cancel-in-progress: false
 
 jobs:
   publish:
+    name: Publish to npm
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # Required for npm Trusted Publishing (OIDC), only in this job
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      # Actions are pinned to full commit hashes, so a moved tag can't change what runs
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
+          # No dependency cache in a release build, so nothing cached elsewhere can end up in it
+          package-manager-cache: false
       - run: npm ci
       - run: npm test
       # Beta versions (e.g. 1.0.0-beta.1) need an explicit tag; "latest" makes them the

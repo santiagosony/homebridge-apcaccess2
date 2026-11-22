@@ -1,3 +1,7 @@
+# [Unreleased]
+
+- CI hardening: GitHub Actions pinned to full commit hashes (checkout v7.0.1, setup-node v7.1.0, CodeQL v4.39.4), no persisted git credentials, the npm publishing permission limited to the publish job, no dependency cache in release builds, and no concurrent publishes. No changes to the plugin itself.
+
 # [1.0.1]
 
 - Declare the `supports-hap` keyword, so the Homebridge UI shows the plugin as HomeKit (HAP) compatible.
