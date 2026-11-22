@@ -1,0 +1,60 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please check the [Troubleshooting](https://github.com/santiagosony/homebridge-apcaccess2#troubleshooting) section of the README first.
+        **Security problems:** please report them [privately](https://github.com/santiagosony/homebridge-apcaccess2/security/advisories/new) instead.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin version
+      placeholder: e.g. 1.0.1
+    validations:
+      required: true
+  - type: input
+    id: homebridge-version
+    attributes:
+      label: Homebridge version
+      placeholder: e.g. 2.5.0
+    validations:
+      required: true
+  - type: input
+    id: node-version
+    attributes:
+      label: Node.js version
+      placeholder: e.g. 22.11.0
+    validations:
+      required: true
+  - type: input
+    id: ups
+    attributes:
+      label: UPS model and apcupsd version
+      placeholder: e.g. Back-UPS XS 1100CI, apcupsd 3.14.14
+  - type: textarea
+    id: config
+    attributes:
+      label: Plugin configuration
+      description: The plugin's entry from `config.json`.
+      render: json
+  - type: textarea
+    id: logs
+    attributes:
+      label: Homebridge log
+      description: The plugin's lines from the Homebridge log, ideally with Homebridge in debug mode (`-D`).
+      render: text
+  - type: textarea
+    id: apcaccess
+    attributes:
+      label: Output of `apcaccess status` (optional)
+      description: Run it on the machine with apcupsd. Remove the `SERIALNO` line if you prefer not to share your UPS serial number.
+      render: text

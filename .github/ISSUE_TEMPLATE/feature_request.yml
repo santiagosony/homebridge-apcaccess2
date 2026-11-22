@@ -1,0 +1,21 @@
+name: Feature request
+description: Suggest an idea or an improvement
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What would you like to do?
+      description: Describe what you're trying to achieve, and why the plugin doesn't cover it today.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: How could the plugin help?
+      description: Your idea for a solution, if you have one. For new sensors, the apcupsd value it would use (e.g. `LINEV`) helps.
+  - type: input
+    id: ups
+    attributes:
+      label: UPS model (optional)
+      placeholder: e.g. Smart-UPS 1500
