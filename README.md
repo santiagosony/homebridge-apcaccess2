@@ -7,7 +7,7 @@
 
 A [Homebridge](https://github.com/homebridge/homebridge) plugin that exposes an APC UPS managed by [apcupsd](http://www.apcupsd.org/) to HomeKit: power cut alerts, battery charge and, optionally, temperature, load and line voltage.
 
-Works with Homebridge 1.8 or later, including 2.x (tested with v2.4.0). Several UPS are supported: add one accessory per apcupsd instance.
+Works with Homebridge 1.8 or later, including 2.x (tested with v2.5.0). Several UPS are supported: add one accessory per apcupsd instance.
 
 ## What shows up in HomeKit
 
