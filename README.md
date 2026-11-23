@@ -1,13 +1,26 @@
-# homebridge-apcaccess2
+<p align="center">
+  <img src="https://raw.githubusercontent.com/homebridge/branding/latest/logos/homebridge-wordmark-logo-vertical.png" width="150" alt="Homebridge logo">
+</p>
 
-[![npm](https://img.shields.io/npm/v/homebridge-apcaccess2)](https://www.npmjs.com/package/homebridge-apcaccess2)
-[![CI](https://github.com/santiagosony/homebridge-apcaccess2/actions/workflows/ci.yml/badge.svg)](https://github.com/santiagosony/homebridge-apcaccess2/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/santiagosony/homebridge-apcaccess2/actions/workflows/codeql.yml/badge.svg)](https://github.com/santiagosony/homebridge-apcaccess2/actions/workflows/codeql.yml)
-[![License: MIT](https://img.shields.io/npm/l/homebridge-apcaccess2)](LICENSE)
+<h1 align="center">homebridge-apcaccess2</h1>
 
-A [Homebridge](https://github.com/homebridge/homebridge) plugin that brings an APC UPS managed by [apcupsd](http://www.apcupsd.org/) into Apple HomeKit: power cut alerts, battery charge and, optionally, temperature, load and line voltage.
+<p align="center">
+  <a href="https://www.npmjs.com/package/homebridge-apcaccess2"><img src="https://img.shields.io/npm/v/homebridge-apcaccess2?label=npm" alt="npm version"></a>
+  <a href="https://www.npmjs.com/package/homebridge-apcaccess2"><img src="https://img.shields.io/npm/dt/homebridge-apcaccess2" alt="npm downloads"></a>
+  <a href="https://github.com/santiagosony/homebridge-apcaccess2/actions/workflows/ci.yml"><img src="https://github.com/santiagosony/homebridge-apcaccess2/actions/workflows/ci.yml/badge.svg" alt="CI status"></a>
+  <a href="https://github.com/santiagosony/homebridge-apcaccess2/actions/workflows/codeql.yml"><img src="https://github.com/santiagosony/homebridge-apcaccess2/actions/workflows/codeql.yml/badge.svg" alt="CodeQL status"></a>
+  <img src="https://img.shields.io/node/v/homebridge-apcaccess2" alt="Node.js version">
+  <a href="LICENSE"><img src="https://img.shields.io/npm/l/homebridge-apcaccess2" alt="License: MIT"></a>
+</p>
 
-It is the successor of [cr3ative/homebridge-apcaccess](https://github.com/cr3ative/homebridge-apcaccess), which is no longer maintained, and a drop-in replacement for it.
+<p align="center">
+  A <a href="https://homebridge.io">Homebridge</a> plugin that brings an APC UPS managed by <a href="http://www.apcupsd.org/">apcupsd</a> into Apple Home: power cut alerts, battery charge and, optionally, temperature, load and line voltage.
+</p>
+
+> [!NOTE]
+> **About this project**
+>
+> This plugin is the successor of [cr3ative/homebridge-apcaccess](https://github.com/cr3ative/homebridge-apcaccess) by Paul Curry, which is no longer maintained, and a drop-in replacement for it. It was forked and vibecoded (written with an AI coding assistant) into what it is today. It is not affiliated with or endorsed by APC or Schneider Electric.
 
 ## Contents
 
@@ -154,7 +167,7 @@ Bug reports, ideas and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBU
 
 ## Security
 
-Please don't report security problems in public issues. Use GitHub's [private vulnerability reporting](https://github.com/santiagosony/homebridge-apcaccess2/security/advisories/new) instead.
+Please don't report security problems in public issues. See the [security policy](SECURITY.md) for how to report them privately.
 
 Every release is published to npm from GitHub Actions with [npm Trusted Publishing](https://docs.npmjs.com/trusted-publishers), so the package carries a provenance attestation that links it to this repository and the exact commit it was built from.
 
